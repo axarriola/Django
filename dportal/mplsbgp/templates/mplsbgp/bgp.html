@@ -1,0 +1,15 @@
+<h1> BGP Query </h1>
+<h3> Select Device </h3>
+
+<form action="{% url 'mplsbgp:bgpresult' %}" method="post">
+{% csrf_token %}
+    <ul>
+    {% for device in device_list %}
+        <li> <input type='radio' name='hostname' value="{{ device.hostname }}"> {{ device.hostname }} ({{ device.ip}}) </li><br>
+    {% endfor %}
+    </ul>
+    Route: <br>
+    <input type="text" name="regex">
+    
+    <input type='submit' value='Query'>
+</form>

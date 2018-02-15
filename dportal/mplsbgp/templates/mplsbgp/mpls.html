@@ -1,0 +1,15 @@
+<h1> MPLS Query </h1>
+<h3> Select Device </h3>
+
+<form action="{% url 'mplsbgp:mplsresult' %}" method="post">
+{% csrf_token %}
+    <ul>
+    {% for device in device_list %}
+        <li> <input type='radio' name='hostname' value="{{ device.hostname }}"> {{ device.hostname }} ({{ device.ip}}) </li><br>
+    {% endfor %}
+    </ul>
+    LSP Regex: <br>
+    <input type="text" name="regex">
+    
+    <input type='submit' value='Query'>
+</form>

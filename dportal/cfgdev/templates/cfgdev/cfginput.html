@@ -1,0 +1,18 @@
+<h1> VRF config input for {{ hostname }} </h1>
+
+<form action="{% url 'cfgdev:cfgpreview' %}" method="post">
+{% csrf_token %}
+    <ul>
+        <li> <input type='radio' name='hostname' value="{{ hostname }}" checked> {{ hostname }} </li><br>
+        <li> VRF name:            <input type="text" name="vrf_name">            </li><br>
+        <li> PHY interface:       <input type="text" name="if_phy">              </li><br>
+        <li> Vlan:                <input type="text" name="if_vlan">             </li><br>
+        <li> Interface IP:        <input type="text" name="if_ip">               </li><br>
+        <li> Route Distinguisher: <input type="text" name="route_distinguisher"> </li><br>
+        <li> VRF target:          <input type="text" name="vrf_target">          </li><br>
+        <li> BGP group name:      <input type="text" name="bgp_group">           </li><br>
+        <li> BGP peer IP:         <input type="text" name="bgp_neighbor">        </li><br>
+        <li> BGP peer AS:         <input type="text" name="bgp_as">              </li><br>
+    </ul>
+    <input type='submit' value='Submit'>
+</form>

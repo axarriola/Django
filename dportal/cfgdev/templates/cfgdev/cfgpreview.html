@@ -1,0 +1,13 @@
+<h1> show | compare for VRF in {{ hostname }} </h1>
+
+<pre> {{ preview|linebreaks }} </pre>
+
+<form action="{% url 'cfgdev:rollback' %}" method="post">
+{% csrf_token %}
+    <input type='submit' value='Rollback'>
+</form>
+
+<form action="{% url 'cfgdev:commit' %}" method="post">
+{% csrf_token %}
+    <input type='submit' value='Commit'>
+</form>

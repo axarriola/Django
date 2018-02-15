@@ -1,0 +1,13 @@
+<h1> VRF config </h1>
+<h3> Select Device </h3>
+
+<form action="{% url 'cfgdev:cfginput' %}" method="post">
+{% csrf_token %}
+    <ul>
+    {% for device in device_list %}
+        <li> <input type='radio' name='hostname' value="{{ device.hostname }}"> {{ device.hostname }} ({{ device.ip}}) </li><br>
+    {% endfor %}
+    </ul>
+    
+    <input type='submit' value='Query'>
+</form>
